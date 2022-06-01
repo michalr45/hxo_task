@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+import django_heroku
 
 
 load_dotenv()
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'hexocean_task.urls'
@@ -172,3 +174,4 @@ REST_FRAMEWORK = {
 
 LOGIN_REDIRECT_URL = 'image_list'
 
+django_heroku.settings(locals())
