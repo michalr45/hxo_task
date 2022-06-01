@@ -4,6 +4,7 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 
 from ..models import *
 from .serializers import *
+from .permissions import HasTempLinkPermission
 
 
 class ImageList(generics.ListAPIView):
@@ -26,6 +27,7 @@ class ImageUpload(generics.CreateAPIView):
 class CreateTemporaryLink(generics.CreateAPIView):
 
     serializer_class = TemporaryLinkSerializer
+    permission_classes = [HasTempLinkPermission]
 
     def perform_create(self, serializer):
 
