@@ -19,6 +19,11 @@ endpoints:
     - images/temporary_links/
     - /auth/login/    -> for auth purposes
 
+
+dummy users: 
+usernames: "Jan" (Enterprise), "Tom" (Premium), "Bob" (Basic)
+password: testpassword123
+
 ## Installation
 
 1. Clone this repository and install project dependencies in a virtual enviroment by running
