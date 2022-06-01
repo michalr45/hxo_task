@@ -5,7 +5,6 @@ from django.contrib.auth.admin import UserAdmin
 from.models import User, Subscription, Image, TemporaryLink
 
 
-admin.site.register(User, UserAdmin)
 admin.site.register(Image)
 
 
@@ -18,3 +17,8 @@ class SubscriptionAdmin(admin.ModelAdmin, DynamicArrayMixin):
 class TemporaryLinkAdmin(admin.ModelAdmin):
     fields = ('image', 'duration', 'expiration', 'slug')
     readonly_fields = ('expiration', 'slug')
+
+
+@admin.register(User, UserAdmin)
+class UserAdmin(admin.ModelAdmin):
+    fields = '__all__'
