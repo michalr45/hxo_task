@@ -14,7 +14,6 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-import django_heroku
 
 
 load_dotenv()
@@ -30,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.getenv('DEBUG'))
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'hexocean-task-mr.herokuapp.com']
 
@@ -173,4 +172,3 @@ REST_FRAMEWORK = {
 
 LOGIN_REDIRECT_URL = 'image_list'
 
-django_heroku.settings(locals())
