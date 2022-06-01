@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import UserChangeForm
+
 
 from .models import User, Subscription, Image, TemporaryLink
 
@@ -19,12 +21,17 @@ class TemporaryLinkAdmin(admin.ModelAdmin):
     readonly_fields = ('expiration', 'slug')
 
 
-class CustomUserInline(admin.TabularInline):
-    model = User
+class MyUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = User
 
 
-class CustomUserAdmin(admin.ModelAdmin):
-    inlines = [CustomUserInline]
+class MyUserAdmin(UserAdmin):
+    form = MyUserChangeForm
+
+    fieldsets = UserAdmin.fieldsets + (
+            (None, {'fields': ('subscription',)}),
+    )
 
 
-admin.site.register(CustomUserAdmin, UserAdmin)
+admin.site.register(User, MyUserAdmin)
