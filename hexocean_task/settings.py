@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = str(os.getenv('SECRET_KEY'))
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'hexocean-task-mr.herokuapp.com']
 
