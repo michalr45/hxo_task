@@ -21,7 +21,7 @@ endpoints:
 
 
 dummy users: 
-usernames: "Jan" (Enterprise), "Tom" (Premium), "Bob" (Basic)
+usernames: "Jan" (Enterprise), "Tom" (Premium), "Bob" (Basic), 
 password: testpassword123
 
 ## Installation
