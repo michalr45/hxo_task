@@ -96,19 +96,6 @@ class EndpointsTestCase(APITestCase):
         response = self.client.post('/api/images/upload/', data=data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    def test_create_temp_link_unauthenticated(self):
-        image = Image.objects.create(
-            user=self.user,
-            image=self.img
-        )
-        data = {
-            'image': image,
-            'duration': 300,
-                }
-        self.client.force_authenticate(user=None)
-        response = self.client.post(f'/api/images/{image.id}/create_temp/', data=data)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
     def test_create_image_unauthenticated(self):
         data = {
             'image': self.img
