@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
+from django.contrib.auth.admin import UserAdmin
 
 from.models import User, Subscription, Image, TemporaryLink
 
 
-admin.site.register(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Image)
 
 
