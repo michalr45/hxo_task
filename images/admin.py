@@ -19,8 +19,12 @@ class TemporaryLinkAdmin(admin.ModelAdmin):
     readonly_fields = ('expiration', 'slug')
 
 
+class CustomUserInline(admin.TabularInline):
+    model = User
+
+
 class CustomUserAdmin(admin.ModelAdmin):
-    fields = '__all__'
+    inlines = [CustomUserInline]
 
 
 admin.site.register(CustomUserAdmin, UserAdmin)
