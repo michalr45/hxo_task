@@ -28,7 +28,7 @@ class Subscription(models.Model):
 
 
 class User(AbstractUser):
-    subscription = models.OneToOneField(Subscription,
+    subscription = models.ForeignKey(Subscription,
                                         related_name='subscription',
                                         on_delete=models.SET_NULL,
                                         null=True)
